@@ -108,7 +108,42 @@ The admin dashboard connects NFC-based identity verification with blockchain rec
 
 ![Admin Dashboard](docs/dashboard.png)
 
+### 5. Admin Management Dashboard
+
+The admin dashboard serves as the central control system of the AYUDA Protocol, giving administrators full visibility over registration, claiming activity, and fund distribution in real time.
+
+Through the dashboard, admins can monitor:
+
+* Registered beneficiaries (drivers)
+* Live claiming status (claimed, pending, or unclaimed)
+* Blockchain-verified transaction history
+* Total distributed aid vs remaining aid pool
+
+Every action in the system is synced with the Stellar blockchain, ensuring that all records are immutable and auditable. This removes the possibility of hidden transactions, duplication, or manual manipulation.
+
+Administrators also have control over aid allocation cycles. If funds remain unclaimed after a distribution period, the dashboard automatically flags them and returns the remaining balance to the institutional aid pool for redistribution.
+
+The dashboard transforms traditional aid management into a transparent, real-time system where institutions can fully track, verify, and audit every transaction without relying on manual paperwork or intermediaries.
+
 ![Admin](docs/admin.png)
+
+### 6. Claiming System (NFC-Based Aid Redemption)
+
+The claiming system of AYUDA Protocol is designed to replace long physical queues with a fast, contactless, and secure verification process. Instead of manually signing lists or waiting for approval, drivers simply use their registered NFC card or NFC-enabled device to claim their subsidy.
+
+When a driver taps their NFC tag at a designated claiming point, the system instantly verifies their identity and eligibility through the Stellar blockchain. Once confirmed, a Soroban smart contract automatically releases the aid directly to the driver’s wallet.
+
+This process ensures that claiming is:
+
+* Fast (completed in seconds)
+* Secure (identity verified through NFC + blockchain)
+* Transparent (every claim is recorded on-chain)
+* Fair (only verified beneficiaries can receive aid)
+
+If a driver is not eligible or has already claimed, the system automatically rejects the request, preventing duplicate or fraudulent claims.
+
+Overall, the claiming system removes the need for physical queues and manual validation, making aid distribution faster and more reliable.
+
 ![Claim](docs/claim.png)
 
 ---
