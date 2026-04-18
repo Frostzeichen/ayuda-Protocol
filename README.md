@@ -8,6 +8,18 @@ It solves transparency and accountability issues in aid distribution using NFC-b
 
 ---
 
+### Target Users
+
+Government agencies and public institutions in the Philippines that manage subsidy and financial assistance programs, including national and local government units responsible for distributing aid to citizens. These systems are typically used for various subsidy types such as education assistance, healthcare aid, emergency relief, and livelihood support programs.
+
+For the current real-world context, the primary focus is on oil subsidy programs for public utility vehicle (PUV) drivers (jeepney, tricycle, and bus drivers). These beneficiaries depend on daily income and are directly affected by fuel price increases. However, they often face long queues, manual verification delays, and inconsistent distribution when claiming subsidies.
+
+AYUDA Protocol is also built for administrators and government staff who handle aid distribution, where transparency, auditability, and fraud prevention are critical. Traditional systems often struggle with duplicate records, missing beneficiaries, and lack of real-time tracking.
+
+With AYUDA Protocol, both sides benefit: drivers receive faster and fairer access to subsidies, while government institutions gain a fully transparent, blockchain-verified system that can scale across all types of government aid programs, starting with oil subsidies as the most immediate and relevant use case.
+
+---
+
 ### The Problem
 
 Every day, especially in rural provinces and city centers in the Philippines, oil subsidy drivers and public utility drivers are forced to line up for hours—sometimes half a day—just to claim government fuel subsidies or aid distributions.
