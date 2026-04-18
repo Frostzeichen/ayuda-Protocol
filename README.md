@@ -48,6 +48,9 @@ The admin dashboard connects NFC-based identity verification with blockchain rec
 
 ![Admin Dashboard](docs/dashboard.png)
 
+![Admin](docs/admin.png)
+![Claim](docs/claim.png)
+
 ---
 
 ## 📌 Project Overview
@@ -147,16 +150,6 @@ npm run dev
 
 ---
 
-## 📷 Image Paths
-
-```txt
-docs/deployed.png
-docs/test.png
-docs/explorer.png
-docs/dashboard.png
-```
-
----
 
 ## 🌍 Why Stellar
 
