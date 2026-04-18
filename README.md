@@ -4,93 +4,29 @@ Decentralized identity and transparent fund distribution system for institutions
 
 ---
 
-## Problem
+## 🏗 System Evolution & Demo
 
-In many schools and institutions in the Philippines, aid distribution is still handled manually using paper lists or spreadsheets. This leads to ghost recipients, duplication, and lack of real-time tracking of who actually received assistance.
+### 1. Smart Contract Deployment
 
-Administrators also have no reliable way to verify whether a student physically claimed their aid, and unclaimed funds often become untracked or unused.
+The foundation of the AYUDA Protocol is deployed on the Stellar Testnet. This confirms that the Soroban smart contract is live, immutable, and publicly verifiable.
 
----
-
-## Solution
-
-AYUDA Protocol uses NFC-based Proof-of-Presence combined with Soroban smart contracts on Stellar to ensure only verified students can claim aid. Each transaction is recorded on-chain, making distribution fully transparent.
-
-If aid is not claimed, the system keeps it visible in the contract state and returns unclaimed funds back to the institution’s aid pool for future redistribution.
-
-Settlement is instant, low-cost, and verifiable within seconds.
+![Smart Contract Deployment](docs/deployed.png)
 
 ---
 
-## Demo Flow (2 minutes)
+### 2. Local Protocol Testing
 
-1. Admin registers student via NFC scan
-2. Aid is assigned to student wallet on-chain
-3. Student taps NFC card (Proof-of-Presence)
-4. Smart contract validates identity
-5. Aid is released instantly to student wallet
+Before deployment, core functions such as `register_citizen`, `fund_aid`, and `claim_aid` were tested locally to ensure correct state handling, prevent duplicate entries, and validate secure aid logic.
+
+![Local Protocol Testing](docs/test.png)
 
 ---
 
-## Architecture
+### 3. On-Chain Verification (Explorer)
 
-```txt
-Frontend (Next.js)
-  |-- Web NFC API (identity scan)
-  |-- Stellar SDK (transaction building)
-  |-- Freighter Wallet (authentication)
-  |-- Convex (real-time sync)
+Every transaction is fully transparent and can be verified on the Stellar blockchain. This removes the “black box” problem in traditional aid systems.
 
-Stellar Testnet
-  |-- Ayuda Soroban Contract (aid logic)
-  |-- USDC / Token Contract (fund distribution)
-```
-
-No traditional backend required. All critical state is stored on-chain with Convex used only for UI syncing.
-
----
-
-## Project Structure
-
-```txt
-ayuda-protocol/
-├── contracts/
-│   ├── src/
-│   │   ├── lib.rs
-│   │   └── test.rs
-│   └── Cargo.toml
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── lib/
-│   │   ├── views/
-│   │   └── styles/
-│   ├── public/
-│   │   └── images/
-│   │       ├── deployed.png
-│   │       ├── test.png
-│   │       ├── explorer.png
-│   │       └── dashboard.png
-└── README.md
-```
-
----
-
-## Stellar Features Used
-
-| Feature                 | Usage                       |
-| ----------------------- | --------------------------- |
-| Soroban Smart Contracts | Core aid distribution logic |
-| USDC / Tokens           | Aid funding and transfers   |
-| Trustlines              | Student wallet eligibility  |
-| Clawback                | Admin correction of errors  |
-| Stellar Network         | Fast settlement & low fees  |
-
----
-
-## Smart Contract
-
-Deployed on Stellar Testnet:
+Contract ID:
 
 ```txt
 CACB6NY66CGT2YGKBYJGOLSLPHZNYMZ5WBEGSNGYNGFFE7P6QSZYWV6S
@@ -102,50 +38,97 @@ Explorer:
 https://stellar.expert/explorer/testnet/contract/CACB6NY66CGT2YGKBYJGOLSLPHZNYMZ5WBEGSNGYNGFFE7P6QSZYWV6S
 ```
 
-### Contract Functions
-
-| Function         | Description                      |
-| ---------------- | -------------------------------- |
-| register_citizen | Registers student identity       |
-| fund_aid         | Assigns aid to student           |
-| claim_aid        | Releases funds to student wallet |
-| get_balance      | Checks remaining aid             |
+![On-Chain Verification](docs/explorer.png)
 
 ---
 
-## Escrow / Aid Lifecycle
+### 4. Admin Management Dashboard
 
-```txt
-Registered → Funded → Claimed → Closed
-        ↘ Unclaimed → Returned to Aid Pool
-```
+The admin dashboard connects NFC-based identity verification with blockchain records, allowing real-time monitoring of student registration and aid distribution.
 
-If aid is not claimed within a defined period, it is not lost — it is returned to the institution’s shared aid pool for redistribution.
+![Admin Dashboard](docs/dashboard.png)
 
 ---
 
-## Key Features
+## 📌 Project Overview
+
+AYUDA Protocol is a decentralized identity and resource distribution system designed for institutional environments.
+
+It solves transparency and accountability issues in aid distribution using NFC-based Proof-of-Presence and blockchain verification.
+
+---
+
+## ❗ The Problem
+
+* Manual aid distribution is prone to errors, ghost recipients, and lack of auditing.
+* There is no transparency on unclaimed or unverified aid.
+* Students struggle with wallets, blockchain complexity, and gas fees.
+* Institutions cannot clearly track where funds go after allocation.
+
+---
+
+## ✅ The Solution
+
+* NFC cards act as secure physical identity verification.
+* Every transaction is recorded on the Stellar blockchain.
+* Proof-of-Presence ensures only verified students can claim aid.
+* Institutions handle gas fees for a seamless experience.
+* Every aid record is fully traceable on-chain.
+* If aid remains unclaimed, funds are returned to the institution’s aid pool for future redistribution.
+
+---
+
+## 🛠 Tech Stack
+
+| Layer          | Technology                            |
+| -------------- | ------------------------------------- |
+| Smart Contract | Rust (Soroban SDK), Stellar Network   |
+| Backend        | Rust (Axum), Stellar CLI, Docker      |
+| Frontend       | Next.js 14, Tailwind CSS, Web NFC API |
+| Infrastructure | Render                                |
+
+---
+
+## 🚀 Key Features
 
 * NFC-based identity verification
-* Fully transparent on-chain aid tracking
+* Fully transparent blockchain audit trail
+* Real-time admin dashboard
 * Instant settlement via Soroban
-* Zero dependency on traditional banking delays
-* Reusable institutional aid pool for unclaimed funds
+* Zero gas fees for students
+* Institutional aid pool recovery system
 
 ---
 
-## Prerequisites
+## 📂 Project Structure
 
-* Rust (latest stable)
-* Soroban CLI v25+
-* Node.js 18+
-* Freighter Wallet (testnet)
+```txt
+ayuda-protocol/
+├── contracts/
+│   ├── src/
+│   │   ├── lib.rs
+│   │   └── test.rs
+│   ├── Cargo.toml
+├── frontend/
+│   ├── src/
+│   ├── components/
+│   ├── lib/
+│   ├── styles/
+│   └── package.json
+└── README.md
+```
 
 ---
 
-## Setup
+## 🔧 Smart Contract
 
-### Smart Contract
+```txt
+CACB6NY66CGT2YGKBYJGOLSLPHZNYMZ5WBEGSNGYNGFFE7P6QSZYWV6S
+```
+
+---
+
+## 🔧 Installation & Setup
 
 ```bash
 soroban contract build
@@ -156,8 +139,6 @@ soroban contract deploy \
   --network testnet
 ```
 
-### Frontend
-
 ```bash
 cd frontend
 npm install
@@ -166,36 +147,34 @@ npm run dev
 
 ---
 
-## CLI Example
+## 📷 Image Paths
 
-```bash
-soroban contract invoke \
-  --id CACB6NY66CGT2YGKBYJGOLSLPHZNYMZ5WBEGSNGYNGFFE7P6QSZYWV6S \
-  --source admin \
-  --network testnet \
-  -- register_citizen \
-  --citizen <ADDRESS> \
-  --name "Juan Dela Cruz"
+```txt
+docs/deployed.png
+docs/test.png
+docs/explorer.png
+docs/dashboard.png
 ```
 
 ---
 
-## Target Users
+## 🌍 Why Stellar
 
-* Public schools and universities
-* Government aid programs
-* NGOs distributing financial assistance
-* Students from low-income households in the Philippines
+Stellar enables fast, low-cost, and transparent transactions ideal for institutional aid systems. Soroban smart contracts ensure automation while maintaining full auditability.
 
 ---
 
-## Why Stellar
+## 🔮 Future Improvements
 
-Stellar enables fast, low-cost, and transparent transactions that are ideal for institutional aid distribution. Soroban smart contracts ensure automation, while the blockchain guarantees auditability and trust without intermediaries.
+* QR fallback for NFC
+* SMS notifications
+* Multi-campus support
+* Advanced analytics dashboard
+* Offline NFC syncing
 
 ---
 
-## License
+## 📜 License
 
 MIT License
 
