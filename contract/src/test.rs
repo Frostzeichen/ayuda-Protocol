@@ -1,4 +1,3 @@
-#![cfg(test)]
 use super::*;
 use soroban_sdk::{
     testutils::{Address as _, Events},
@@ -76,4 +75,6 @@ fn test_prevent_duplicate_nfc_link() {
     // This should panic because "SAME_TAG" is already linked to user_a
     client.register_citizen(&admin, &user_b, &nfc_id, &name);
 }
+
+#![cfg(test)]
 
