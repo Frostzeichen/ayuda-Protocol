@@ -1,6 +1,6 @@
 [submodule "backend"]
 	path = backend
-	url = https://github.com/rylsherdamz-rgb/ayuda-backend.git
+	url = https://github.com/Frostzeichen/ayuda-backend.git
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/rylsherdamz-rgb/stellar-frontend.git
+	url = https://github.com/Frostzeichen/stellar-frontend.git
